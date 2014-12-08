@@ -14,3 +14,40 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require moment
+//= require fullcalendar
+$(document).ready(function() {
+
+    // page is now ready, initialize the calendar...
+
+    $('#calendar').fullCalendar({
+    	firstDay: 1,
+    	height: 500,
+    	buttonIcons: {
+		prev: 'left-single-arrow',
+	    next: 'right-single-arrow',
+	    prevYear: 'left-double-arrow',
+	    nextYear: 'right-double-arrow'
+    	},
+    	header: {
+  		left: 'prev',
+  		center: 'title',
+  		right: 'next,today'
+		},
+
+
+		dayClick: function() {
+        alert('a day has been clicked!');
+    	},
+
+    	 events: [
+        {
+            title: 'My Event',
+            start: '2014-12-12',
+            description: 'This is a cool event'
+        },
+        // more events here
+	    ],
+	});
+});
+

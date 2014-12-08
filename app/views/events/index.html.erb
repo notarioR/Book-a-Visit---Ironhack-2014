@@ -1,7 +1,9 @@
+
 <div>Events</div>
 <%= flash[:notice] %>
 <%= flash[:error] %>
 
+<div id="calendar">Calendar</div>
 
 <% @events.each do |event| %>
 	<li><%= event.title %> 
