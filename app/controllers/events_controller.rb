@@ -8,6 +8,10 @@ class EventsController < ApplicationController
 		@event = Event.new
 	end
 
+	def show
+		@event = Event.find params[:id]
+	end
+
 	def create
 		@event = Event.new event_params
 		if @event.save
@@ -17,6 +21,26 @@ class EventsController < ApplicationController
 		else
 			flash.now[:error] = "Error"
 			render 'new'
+		end
+	end
+
+	def edit
+		@event = Event.find params[:id]
+	end
+
+	def update
+		@event = Event.find params[:id]
+		if @event.update_attributes event_params 
+			flash[:notice] = "Event update successfully"
+			redirect_to events_path
+		end
+	end
+
+	def destroy
+		@event = Event.find params[:id]
+		if @event.destroy
+			flash[:notice] = "Event destroy successfully"
+			redirect_to events_path
 		end
 	end
 

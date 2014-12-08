@@ -1,9 +1,16 @@
 <div>Events</div>
+<%= flash[:notice] %>
+<%= flash[:error] %>
+
 
 <% @events.each do |event| %>
 	<li><%= event.title %> 
-		<%= event.hours %>hours
-		<%= event.minutes %>minutes
+		<%if event.hours.blank? == false %> 
+		<%= event.hours %> hours
+		<% end %>
+		<% if event.minutes.blank? == false %> 
+		<%= event.minutes %> minutes
+		<% end %>
 		<%= event.date %>
 		<%= event.description %>
 	</li>
