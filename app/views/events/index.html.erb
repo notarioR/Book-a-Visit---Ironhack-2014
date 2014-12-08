@@ -1,7 +1,12 @@
-<div>Add events</div>
+<div>Events</div>
 
 <% @events.each do |event| %>
 	<li><%= event.title %> 
+		<%= event.hours %>hours
+		<%= event.minutes %>minutes
 		<%= event.date %>
+		<%= event.description %>
 	</li>
-	<% end %>
+<% end %>
+
+<%= link_to 'Add Event', new_event_path %>
