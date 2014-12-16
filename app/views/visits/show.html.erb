@@ -1,0 +1,7 @@
+<div class="area">
+<div> Show event </div>
+
+<%= @visit.title %>
+<%= @visit.description %>
+<button><%= link_to("Delete", visit_path(@visit), method: :delete, data: {confirm: 'Are you sure?'}) %></button>
+</div>

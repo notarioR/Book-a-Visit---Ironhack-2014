@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administration</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<div class="header">
+		<div class="header-admin"><%= link_to 'Reservations', admin_reservations_path %>
+		<%= link_to 'Dashboard', admin_dashboard_index_path %>
+		<%= link_to 'Home', "/" %>
+		<div class="login">
+			<% if user_signed_in? %>
+			<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: :signout,
+				data: { confirm: 'Are you sure?' } %>
+			<% else %>
+			<%= link_to 'Sign In', new_user_session_path %> <% end %>
+			<%= link_to 'Add Visit', new_admin_dashboard_path %>
+		</div>
+		</div>
+</div>
+<div class="area">
+<%= yield %>
+</div>
+<footer class="footer col-md-12 col-xs-12 col-ls-12">
+		<%= link_to 'Admin', admin_dashboard_index_path %> Ironhack 2014
+</footer>
+</body>
+</html>

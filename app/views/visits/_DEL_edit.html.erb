@@ -1,20 +1,20 @@
- <h1>Event new</h1>
-<%= form_for [@event] do |f| %>
+<div class="area">
+<h1>Edit Events</h1>
+<%= form_for [@visit] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
   <%= f.label :description %>
   <%= f.text_field :description %>
   <br>
-  <%= f.label :hours %>
-  <%= f.text_field :hours %>
-  <br>
-  <%= f.label :minutes %>
-  <%= f.text_field :minutes %>
+  <%= f.label :turn %>
+  <%= f.select :turn, options_for_select([['Morning', false],['Afternoon', true]], @event.turn) %>
   <br>
   <%= f.label :date %>
   <%= f.date_field :date %>
   <br>
+
   <%= f.submit 'Save' %>
-  <%= link_to 'Cancel', '/' %>
- <% end %>
+
+  <% end %>
+</div>

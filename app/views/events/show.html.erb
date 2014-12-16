@@ -1,5 +1,7 @@
+<div class="area">
 <div> Show event </div>
 
 <%= @event.title %>
 <%= @event.description %>
 <button><%= link_to("Delete", event_path(@event), method: :delete, data: {confirm: 'Are you sure?'}) %></button>
+</div>

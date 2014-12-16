@@ -1,0 +1,22 @@
+<div class="area">
+<h1>Edit Reservations</h1>
+<%= form_for @prepend_form do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
+  <br>
+  <%= f.label :email  %>
+  <%= f.text_field :email %>
+  <br>
+  <%= f.label :members  %>
+  <%= f.text_field :members %>
+  <br>
+  <%= f.label :date  %>
+  <%= f.date_field :date %>
+  <br>
+  <%= f.submit 'Save' %>
+
+  <% end %>
+</div>

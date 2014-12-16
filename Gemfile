@@ -36,6 +36,14 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
+
 # gem 'debugger', group: [:development, :test]
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
+
+gem 'pundit', '~> 0.3.0'
+gem 'devise', '~> 3.4.1'
+gem 'will_paginate'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'pry'

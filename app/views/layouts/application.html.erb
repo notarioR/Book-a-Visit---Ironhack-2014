@@ -8,8 +8,22 @@
 
 </head>
 <body>
-<div id='calendar'></div>
+<div class="header">
+	<div class="login">
+		<% if user_signed_in? %>
+			<button><%= link_to 'Sign Out', destroy_user_session_path, method: :delete,
+			data: { confirm: 'Are you sure?' } %></button>
+		<% else %>
+		<button><%= link_to 'Sign In', new_user_session_path %> <% end %></button>
+		<button type="button"><%= link_to 'Add Visit', new_admin_dashboard_path %></button>
+	</div>
+</div>
+<div class="area">
 <%= yield %>
+</div>
 
+<footer class="footer">
+		<%= link_to 'Admin', admin_dashboard_index_path %> Ironhack 2014
+</footer>
 </body>
 </html>

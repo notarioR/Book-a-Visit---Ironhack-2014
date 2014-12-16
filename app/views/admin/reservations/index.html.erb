@@ -1,0 +1,56 @@
+
+<table class="table table-striped wait">WAIT
+<th> Title </th>
+<th> Email </th>
+<th> Phone </th>
+<th> Members </th>
+<th> Date </th>
+<th> State </th>
+<th>  </th>
+<th>  </th>
+<th>  </th>
+<% @reservation.each do |r| %>
+<tr id="<%= r.id %>" >
+	<% if r.state == "wait" %>
+	<td> <%= r.title %> </td>
+	<td><%= r.email %> </td>
+	<td> <%= r.phone %> </td>
+	<td> <%= r.members %> </td>
+	<td> <%= r.date %> </td>
+	<td> <%= r.state %> </td>
+	<td><button class="buttons_admin btn btn-success"><%= link_to 'Accept',admin_path(r.id), method: :post %></td>
+	<td><button class="buttons_admin btn btn-danger"><%= link_to(admin_reservation_path(r.id), method: :delete, remote: true) do %>
+			Delete
+	<% end %></button></td>
+	<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_reservation_path(r.id)%></button></td>
+	<% end %>
+</tr>
+<% end %>
+</table>
+
+<table class="table table-striped accept"> ACCEPT
+<th> Title </th>
+<th> Email </th>
+<th> Phone </th>
+<th> Members </th>
+<th> Date </th>
+<th> State </th>
+<th>  </th>
+<th>  </th>
+<% @reservation.each do |r| %>
+<tr>
+	<% if r.state == "accept" %>
+	<td> <%= r.title %> </td>
+	<td><%= r.email %> </td>
+	<td> <%= r.phone %> </td>
+	<td> <%= r.members %> </td>
+	<td> <%= r.date %> </td>
+	<td> <%= r.state %> </td>
+	
+	<td><button class="btn btn-success">Acept</button></td>
+	<td><button class="btn btn-danger">Delete</button></td>
+	<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_reservation_path(r.id)%></button></td>
+	<% end %>
+</tr>
+<% end %>
+</table>

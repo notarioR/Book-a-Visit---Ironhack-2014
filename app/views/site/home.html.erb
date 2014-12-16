@@ -5,11 +5,44 @@
 	<title>Document</title>
 
 </head>
+<header>
+	
+</header>
 <body>
+	
 	<section class="row">
 	<article class="center">
-	<h1>Events</h1>
+
+		<div class="bg-success"><%= flash[:notice] %></div>
+		<div class="bg-danger"><%= flash[:error] %></div>
+		<div id="calendar" class="col-md-9">
+			<%= javascript_tag do -%>
+				var visits = <%= @visits.html_safe %>;
+				var p = [];
+					for (i=0; i<visits.length; i++){
+						t = JSON.stringify({title: visits[i].title, date: visits[i].date});
+						p.push(t);
+					};
+			<% end -%>
+		</div>
+		<div class="list-visits col-md-3">
+		<div class="eventclick">
+			
+		</div>
+		<h1> List Visits </h1>
+		<% @visit.last_created_visits(5).each do |v| %>
+			<li><%= v.title %>
+			<%= v.date %></li>
+		<% end %>
+		
+		</div>
+		<div>
+			<%= render :partial => 'reservations/new' %>
+		</div>
+		
 	</section>
 	</article>
+	
 </body>
+
 </html>
