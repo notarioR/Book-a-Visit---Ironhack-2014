@@ -23,11 +23,12 @@
 
 <div class="paginate apple_pagination col-md-12"><%= will_paginate @visit %></div>
 
-
 <div id="calendar" class="col-md-12">
-</div>
-
 	<%= javascript_tag do -%>
 	var visits = <%= @calendar_items.html_safe %>;
 	<% end -%>
+</div>
+
+
+	
 </div>

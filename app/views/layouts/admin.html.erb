@@ -15,12 +15,14 @@
 		<%= link_to 'Home', "/" %>
 		<div class="login">
 			<% if user_signed_in? %>
-			<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: :signout,
-				data: { confirm: 'Are you sure?' } %>
-			<% else %>
-			<%= link_to 'Sign In', new_user_session_path %> <% end %>
-			<%= link_to 'Add Visit', new_admin_dashboard_path %>
-			<%= link_to 'Add Event', new_admin_event_path %>
+				<%= link_to 'Add Visit', new_admin_dashboard_path %>
+				<%= link_to 'Add Event', new_admin_event_path %>
+				<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: :signout,
+					data: { confirm: 'Are you sure?' } %>
+				<% else %>
+				<%= link_to 'Sign In', new_user_session_path %> 
+			<% end %>
+			
 		</div>
 		</div>
 </div>

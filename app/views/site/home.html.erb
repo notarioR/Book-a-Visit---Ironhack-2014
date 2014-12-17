@@ -20,31 +20,51 @@
 </div>
 
 
-	<section class="row">
+<section class="row">
 	<article class="center">
 
-		<div class="bg-success"><%= flash[:notice] %></div>
-		<div class="bg-danger"><%= flash[:error] %></div>
+		<div class="flash bg-success"><%= flash[:notice] %></div>
+		<div class="flash bg-danger"><%= flash[:error] %></div>
+
 		<div id="calendar" class="col-md-9 col-xs-12 col-ls-9">
 			<%= javascript_tag do -%>
 				var visits = <%= @calendar_items.html_safe %>;
 			<% end -%>
 		</div>
 		<div class="list-visits col-md-3">
-		<div class="eventclick">
+			<div class="eventclick"></div>
+
+			<button class="btn btn-success button-event">Last Events</button>
+
+			<div class="render-last-events">
+				<%if @events.present? %>
+					<% @events.last_created_events(5).each do |e| %>
+						<div class="list-title"><%= e.title %></div>
+						<div class="list-description"><%= e.description.truncate(10) %></div>
+						<div class="list-image"><%= image_tag e.image.url(:thumb) %></div>
+						<div class="list-url"> <a href="<%= e.url %>">Link Event</a></div>
+						<hr>
+					<% end %>
+					<% else %>
+						No events
+				<% end %>
+			</div>
+
+			<button class="btn btn-info button-visit">Last Visit</button>
 			
+			<div class="render-last-visit">
+					<% @visits.last_created_visits(5).each do |v| %>
+						<div class="list-title"><%= v.title %></div>
+						<div class="list-description"><%= v.date %></li></div><hr>
+					<% end %>
+			</div>
+
+			<button class="btn btn-primary button-reservation">Reservation</button>
+
+			<div class="render-reservation">
+				<%= render partial: 'reservations/new' %>
+			</div>
 		</div>
-		<h1> List Visits </h1>
-		<% @visits.last_created_visits(5).each do |v| %>
-			<li><%= v.title %>
-			<%= v.date %></li>
-		<% end %>
-		
-		</div>
-		<div>
-			<%= render partial: 'reservations/new' %>
-		</div>
-		
 	</section>
 	</article>
 	

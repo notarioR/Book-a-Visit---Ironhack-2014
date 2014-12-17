@@ -21,7 +21,17 @@
  $(document).ready(function() {
 
  		$('#user_password, #user_username').addClass('form-control');
- 		$('fc-content')
+ 		$('.button-visit').click(function(){
+			$('.render-last-visit').toggle(1000);
+		});
+
+		$('.button-reservation').click(function(){
+			$('.render-reservation').toggle(1000);
+		});
+
+		$('.button-event').click(function(){
+			$('.render-last-events').toggle(1000);
+		});
  		
  		var url = 'events/';
 
@@ -58,15 +68,8 @@
 	    		};
 	    		
 
-	    		$('.eventclick').text(event.title );
-
-		   
-		        // change the border color just for fun
-		        
+	    		$('.eventclick').text(event.title );   
 		    }
 		});
-
-		
-
 });
 

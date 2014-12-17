@@ -9,15 +9,21 @@
 </head>
 <body>
 <div class="header">
+	<div class="logo">
+	Book a <span class="visit">Visit</span>
+	</div>
 	<div class="login">
 		<% if user_signed_in? %>
-			<button><%= link_to 'Sign Out', destroy_user_session_path, method: :delete,
-			data: { confirm: 'Are you sure?' } %></button>
+		<%= link_to 'Add Visit', new_admin_dashboard_path %>
+		<%= link_to 'Add Event', new_admin_event_path %>
+		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete,
+			data: { confirm: 'Are you sure?' } %>
 		<% else %>
-		<button><%= link_to 'Sign In', new_user_session_path %> <% end %></button>
-		<button type="button"><%= link_to 'Add Visit', new_admin_dashboard_path %></button>
+		<%= link_to 'Sign In', new_user_session_path %>
+		<% end %>
 	</div>
 </div>
+
 <div class="area">
 		<%= yield %>
 </div>

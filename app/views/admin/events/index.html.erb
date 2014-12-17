@@ -1,11 +1,23 @@
- <%= link_to 'Nuevo evento', new_admin_event_path %>
-
-<div class="bd">
-
-<div id="calendar" class="col-md-12">
-</div>
-
-	<%= javascript_tag do -%>
-	var visits = <%= @events.html_safe %>;
-	<% end -%>
-</div>
+	<table class="table table-striped wait">
+		<th> Image </th>
+		<th> Title </th>
+		<th> Description </th>
+		<th> Url Event </th>
+		<th> </th>
+		<th> </th>
+		
+		<% @eventsindex.last_created_events(10).each do |e| %>
+		<tr id="event_<%= e.id %>" >
+			<td> <%= image_tag e.image.url(:thumb) %> </td>
+			<td> <%= e.title %> </td>
+			<td> <%= e.description.truncate(10) %> </td>
+			<td> <a href="<%= e.url %>"> Link </a> </td>
+			
+			<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_event_path(e.id)%></button></td>
+			<td><button class="buttons_admin btn btn-danger"><%= link_to(admin_event_path(e.id), method: :delete, remote: :true) do %>
+			Delete
+			<% end %></button></td>
+			
+		</tr>
+		<% end %>
+	</table>

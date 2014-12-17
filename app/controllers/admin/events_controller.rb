@@ -1,7 +1,8 @@
 class Admin::EventsController < AdminController
-	before_action :set_event, only: %i(edit show update)
+	before_action :set_event, only: %i(edit show update destroy)
 
 	def index
+		@eventsindex = Event.all
 		@events = Event.all.to_json
 		render layout: "admin"
 	end
@@ -32,6 +33,13 @@ class Admin::EventsController < AdminController
 		 	flash[:notice] = "Event update successfully"
 		 	redirect_to admin_events_path
 		 end
+	end
+
+	def destroy
+		 @event.destroy
+			respond_to do |format|
+				format.js
+			end
 	end
 
   private

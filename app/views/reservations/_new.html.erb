@@ -1,5 +1,4 @@
 
-<h1>Reservation</h1>
 <%= form_for [@onereservation] do |f| %>
   
   <%= f.text_field :title, :placeholder => "Title" %>
@@ -16,7 +15,7 @@
   
   <%= f.date_field :date, :placeholder => "date" %>
   <br>
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', :class => 'submit_class_reservation_home' %>
 
   <% end %>
 
