@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     # resources :dashboard
     resources :dashboard
     resources :reservations 
+    resources :events
     post 'reservations/accept/:id', to: 'reservations#accept'
     # get :events, to: 'dashboard#events'
   end

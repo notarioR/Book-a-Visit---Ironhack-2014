@@ -2,7 +2,7 @@ class Admin::DashboardController < AdminController
 	PER_PAGE = 10
 	def index
 		@visit = Visit.paginate(:page => params[:page], :per_page => 10)
-		@visits = Visit.all.map{|x| {id: x.id, date: x.date, title: x.title + ' ' + x.description}}.to_json
+		@visits = Visit.all.map{|x| {id: x.id, date: x.date, title: x.title + ' - ' + x.description}}.to_json
 		@reservation = Reservation.paginate(:page => params[:page], :per_page => 10)
 
 		render layout: "admin"

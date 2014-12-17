@@ -24,12 +24,13 @@
 	    $('#calendar').fullCalendar({
 	    	firstDay: 1,
 	    	eventLimit: 2, // If you set a number it will hide the itens
-    		eventLimitText: "Something", // Default is `more` (or "more" in the lang you pick in the option)  	
+    		eventLimitText: "view more", // Default is `more` (or "more" in the lang you pick in the option)  	
 	    	buttonIcons: {
 				prev: 'left-single-arrow',
 		    	next: 'right-single-arrow',
 		    	prevYear: 'left-double-arrow',
-			    nextYear: 'right-double-arrow'
+			    nextYear: 'right-double-arrow',
+			    
 	    	},
 	    	header: {
 	  			left: 'prevYear, prev',
@@ -39,16 +40,17 @@
 	    	events: visits,
 	    	eventClick: function(visits, jsEvent, view) {
 
-	    		$('.eventclick').html(visits.title + visits.description + visits.turn);
-		       
+	    		$('.eventclick').text(visits.title + ' - ' + visits.description );
+		   
 		        // change the border color just for fun
-		        $(this).css('background-color', 'red');
+		        // $(this).css('background-color', 'red');
 
 		    }
 		});
 
 		// $('.fc-day-number').append("<button class='add'><a href='events/new'>Add</a></button>");
 		// $('.fc-day-number').addClass("parent-button");
+		
 
 });
 

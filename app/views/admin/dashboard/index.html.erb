@@ -2,9 +2,10 @@
 <div class="visits-dash col-md-6">
 	<h2>Last Visits</h2>
 	<% @visit.last_created_visits(5).each do |v| %>
-		<li>
+		<li id="<%= v.id %>">
 			<%= v.title %> -
 			<%= v.description %>
+			<%= link_to 'Edit', edit_admin_dashboard_path(v.id) %>
 		</li>
 	<% end %>
 	
@@ -12,9 +13,10 @@
 <div class="reservation-dash col-md-6">
 	<h2>Last reservation</h2>
 	<% @reservation.last_created_reservation(5).each do |r| %>
-		<li>
+		<li id="<%= r.id %>">
 			<%= r.title %> -
 			<%= r.email %>
+			<%= link_to 'Edit', edit_admin_reservation_path(r.id) %>
 		</li>
 	<% end %>
 	

@@ -1,20 +1,20 @@
 
 <h1>Reservation</h1>
 <%= form_for [@onereservation] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  
+  <%= f.text_field :title, :placeholder => "Title" %>
   <br>
-  <%= f.label :phone %>
-  <%= f.text_field :phone %>
+  
+  <%= f.text_field :phone, :placeholder => "Phone" %>
   <br>
-  <%= f.label :email  %>
-  <%= f.text_field :email %>
+  
+  <%= f.text_field :email, :placeholder => "email" %>
   <br>
-  <%= f.label :members  %>
-  <%= f.text_field :members %>
+  
+  <%= f.text_field :members, :placeholder => "members" %>
   <br>
-  <%= f.label :date  %>
-  <%= f.date_field :date %>
+  
+  <%= f.date_field :date, :placeholder => "date" %>
   <br>
   <%= f.submit 'Save' %>
 

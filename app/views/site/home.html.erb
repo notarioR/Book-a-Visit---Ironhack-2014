@@ -15,7 +15,7 @@
 
 		<div class="bg-success"><%= flash[:notice] %></div>
 		<div class="bg-danger"><%= flash[:error] %></div>
-		<div id="calendar" class="col-md-9">
+		<div id="calendar" class="col-md-9 col-xs-12 col-ls-9">
 			<%= javascript_tag do -%>
 				var visits = <%= @visits.html_safe %>;
 				var p = [];
