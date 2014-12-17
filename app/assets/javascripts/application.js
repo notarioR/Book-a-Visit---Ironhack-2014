@@ -16,10 +16,14 @@
 //= require_tree .
 //= require moment
 //= require fullcalendar
+//= require bootstrap
+
  $(document).ready(function() {
 
  		$('#user_password, #user_username').addClass('form-control');
+ 		$('fc-content')
  		
+ 		var url = 'events/';
 
 	    $('#calendar').fullCalendar({
 	    	firstDay: 1,
@@ -37,19 +41,31 @@
 	  			center: 'title',
 	  			right: 'next,today,nextYear'
 			},
+			
 	    	events: visits,
-	    	eventClick: function(visits, jsEvent, view) {
+	    	eventClick: function(event) {
+	    		console.log(event.cl)
+	    		if (event.cl == 'Event'){
+	    			$.ajax({
+		    			url: url + event.id,
+		    			dataType: 'script' 
+	    			});
+	    		}else{
+	    			$.ajax({
+		    			url: 'visits/' + event.id,
+		    			dataType: 'script' 
+	    			});
+	    		};
+	    		
 
-	    		$('.eventclick').text(visits.title + ' - ' + visits.description );
+	    		$('.eventclick').text(event.title );
+
 		   
 		        // change the border color just for fun
-		        // $(this).css('background-color', 'red');
-
+		        
 		    }
 		});
 
-		// $('.fc-day-number').append("<button class='add'><a href='events/new'>Add</a></button>");
-		// $('.fc-day-number').addClass("parent-button");
 		
 
 });

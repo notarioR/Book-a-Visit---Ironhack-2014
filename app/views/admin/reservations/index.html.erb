@@ -9,8 +9,8 @@
 <th>  </th>
 <th>  </th>
 <th>  </th>
-<% @reservation.each do |r| %>
-<tr id="<%= r.id %>" >
+<% @reservation.last_created_reservation(20).each do |r| %>
+<tr id="reservation_<%= r.id %>" >
 	<% if r.state == "wait" %>
 	<td> <%= r.title %> </td>
 	<td><%= r.email %> </td>
@@ -37,7 +37,7 @@
 <th> State </th>
 <th>  </th>
 <th>  </th>
-<% @reservation.each do |r| %>
+<% @reservation.last_created_reservation(20).each do |r| %>
 <tr>
 	<% if r.state == "accept" %>
 	<td> <%= r.title %> </td>

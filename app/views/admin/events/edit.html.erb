@@ -1,11 +1,18 @@
 <div class="area">
 <h1>Edit Events</h1>
-<%= form_for [:admin, @events] do |f| %>
+<%= form_for [:admin, @event] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
   <%= f.label :description %>
   <%= f.text_field :description %>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= image_tag @event.image.url(:thumb) %>
+  <br> 
+  <%= f.label :url %>
+  <%= f.text_field :url %>
   <br>
   <%= f.label :turn %>
   <%= f.select :turn, options_for_select([['Morning', false],['Afternoon', true]], @event.turn) %>

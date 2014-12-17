@@ -1,4 +1,6 @@
 class Admin::EventsController < AdminController
+	before_action :set_event, only: %i(edit show update)
+
 	def index
 		@events = Event.all.to_json
 		render layout: "admin"
@@ -6,6 +8,12 @@ class Admin::EventsController < AdminController
 
 	def new
 		@event = Event.new
+	end
+
+	def edit
+	end
+
+	def show
 	end
 
 	def create
@@ -19,8 +27,20 @@ class Admin::EventsController < AdminController
 		end
 	end
 
+	def update
+		 if @event.update_attributes events_params 
+		 	flash[:notice] = "Event update successfully"
+		 	redirect_to admin_events_path
+		 end
+	end
+
+  private
 
 	def events_params 
- 		params.require(:event).permit(:title, :description, :date )
+ 		params.require(:event).permit(:title, :description, :date, :image, :url)
 	end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
 end

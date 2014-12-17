@@ -9,7 +9,17 @@
 	
 </header>
 <body>
-	
+
+<!-- Button trigger modal -->
+<!--button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button-->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+
 	<section class="row">
 	<article class="center">
 
@@ -17,12 +27,7 @@
 		<div class="bg-danger"><%= flash[:error] %></div>
 		<div id="calendar" class="col-md-9 col-xs-12 col-ls-9">
 			<%= javascript_tag do -%>
-				var visits = <%= @visits.html_safe %>;
-				var p = [];
-					for (i=0; i<visits.length; i++){
-						t = JSON.stringify({title: visits[i].title, date: visits[i].date});
-						p.push(t);
-					};
+				var visits = <%= @calendar_items.html_safe %>;
 			<% end -%>
 		</div>
 		<div class="list-visits col-md-3">
@@ -30,14 +35,14 @@
 			
 		</div>
 		<h1> List Visits </h1>
-		<% @visit.last_created_visits(5).each do |v| %>
+		<% @visits.last_created_visits(5).each do |v| %>
 			<li><%= v.title %>
 			<%= v.date %></li>
 		<% end %>
 		
 		</div>
 		<div>
-			<%= render :partial => 'reservations/new' %>
+			<%= render partial: 'reservations/new' %>
 		</div>
 		
 	</section>
