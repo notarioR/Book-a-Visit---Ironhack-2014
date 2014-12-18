@@ -58,7 +58,7 @@ body h1{
 	padding-bottom: 15px;
 }
  .login a:hover {
-	background-color: white;
+	
 	border-radius: 2px;
 	text-decoration: none;
 }
@@ -129,12 +129,7 @@ body h1{
  	padding: 15px;
  	border-bottom: 1px solid;
  }
- .header-admin{
- 	text-align: center;
- }
- .header-admin a {
-margin: 10px;
-}
+
 .login{
 	float: right;
 }
@@ -184,11 +179,11 @@ button.btn.btn-primary.button-reservation{
 }
 .buttons_admin a{
 	text-decoration: none;
-	color: white;
+	
 }
 .buttons_admin a:hover{
 	text-decoration: none;
-	color: white;
+	
 }
 
 input#reservation_title {
@@ -250,7 +245,7 @@ img{
 
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
 	-webkit-appearance: none;
-cursor: pointer;
-border: none;
-background-color: transparent;
+	cursor: pointer;
+	
+	
 }

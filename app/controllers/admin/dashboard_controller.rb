@@ -1,6 +1,5 @@
 class Admin::DashboardController < AdminController
 
-
 	def index
 		@reservations = Reservation.all
 		@visits = Visit.all 
@@ -14,8 +13,6 @@ class Admin::DashboardController < AdminController
            each_serializer: CalendarItemSerializer).to_json
 
 		@onereservation = Reservation.new
-	
-		render layout: "admin"
 	end
 
 	def new

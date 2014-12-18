@@ -32,8 +32,7 @@ class ReservationsController < ApplicationController
 			redirect_to "admin/dashboard"
 		end
 	end
-
-
+	
 	def reservation_params 
  		params.require(:reservation).permit(:title, :phone, :email, :members, :date, )
 	end

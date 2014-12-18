@@ -18,11 +18,11 @@
 	<td> <%= r.members %> </td>
 	<td> <%= r.date %> </td>
 	<td> <%= r.state %> </td>
-	<td><button class="buttons_admin btn btn-success"><%= link_to 'Accept',admin_path(r.id), method: :post %></td>
-	<td><button class="buttons_admin btn btn-danger"><%= link_to(admin_reservation_path(r.id), method: :delete, remote: true) do %>
-			Delete
-	<% end %></button></td>
-	<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_reservation_path(r.id)%></button></td>
+	<td><%= button_to 'Accept',admin_path(r.id), method: :post, :class => 'btn btn-success' %></td>
+	<td><%= button_to(admin_reservation_path(r.id), method: :delete, remote: true, :class => 'btn btn-danger') do %>
+		Delete
+	<% end %></td>
+	<td><%= button_to 'Edit', edit_admin_reservation_path(r.id), :class => 'btn btn-warning' %></td>
 	<% end %>
 </tr>
 <% end %>
