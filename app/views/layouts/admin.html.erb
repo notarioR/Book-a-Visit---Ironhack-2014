@@ -8,6 +8,9 @@
 
 </head>
 <body>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
 <div class="header">
 		<div class="header-admin">
 		<%= link_to 'Home', "/" %>
@@ -16,7 +19,7 @@
 		<%= link_to 'Reservations', admin_reservations_path %>
 		<div class="login">
 			<% if user_signed_in? %>
-				<%= link_to 'Add Visit', new_admin_dashboard_path %>
+				<%= link_to 'Add Visit', new_admin_dashboard_path, remote: true %>
 				<%= link_to 'Add Event', new_admin_event_path %>
 				<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: :signout,
 					data: { confirm: 'Are you sure?' } %>

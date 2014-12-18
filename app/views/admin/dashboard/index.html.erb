@@ -1,3 +1,6 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
 <div class="tables-area">
 	<div class="tables-inline col-md-12">
 		<table class="table table-hover table-condensed">
@@ -36,4 +39,4 @@
 		</table>
 	</div> -->
 </div>
-<div class="paginate apple_pagination col-md-12"><%= will_paginate @visit %></div>
+<div class="paginate apple_pagination col-md-12"><%= will_paginate @visit, :page_links => false %></div>

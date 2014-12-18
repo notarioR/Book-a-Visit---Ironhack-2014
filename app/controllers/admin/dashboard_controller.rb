@@ -1,12 +1,11 @@
 class Admin::DashboardController < AdminController
-	PER_PAGE = 10
+
 
 	def index
-	
 		@reservations = Reservation.all
 		@visits = Visit.all 
 
-		@visit = Visit.all.paginate(:page => params[:page], :per_page => 5)
+		@visit = Visit.all.paginate(:page => params[:page], :per_page => 10)
 		@reservation = Reservation.paginate(:page => params[:page], :per_page => 5)
 		
 		@events         = Event.all
@@ -21,6 +20,9 @@ class Admin::DashboardController < AdminController
 
 	def new
 		@visit = Visit.new
+		respond_to do |format|
+			format.js
+		end
 	end
 	
 	def edit
