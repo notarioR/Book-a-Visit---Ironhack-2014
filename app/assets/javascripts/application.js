@@ -38,7 +38,8 @@
 	    $('#calendar').fullCalendar({
 	    	firstDay: 1,
 	    	eventLimit: 2, // If you set a number it will hide the itens
-    		eventLimitText: "view more", // Default is `more` (or "more" in the lang you pick in the option)  	
+    		eventLimitText: "view more", // Default is `more` (or "more" in the lang you pick in the option) 
+    		height: 550, 	
 	    	buttonIcons: {
 				prev: 'left-single-arrow',
 		    	next: 'right-single-arrow',
