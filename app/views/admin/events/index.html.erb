@@ -6,7 +6,7 @@
 		<th> </th>
 		<th> </th>
 		
-		<% @eventsindex.last_created_events(10).each do |e| %>
+		<% @eventsindex.last_created_events(5).each do |e| %>
 		<tr id="event_<%= e.id %>" >
 			<td> <%= image_tag e.image.url(:thumb) %> </td>
 			<td> <%= e.title %> </td>
@@ -16,8 +16,9 @@
 			<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_event_path(e.id)%></button></td>
 			<td><button class="buttons_admin btn btn-danger"><%= link_to(admin_event_path(e.id), method: :delete, remote: :true) do %>
 			Delete
-			<% end %></button></td>
-			
+			<% end %></button></td>	
 		</tr>
 		<% end %>
+		
 	</table>
+<div class="paginate apple_pagination "><%= will_paginate @eventsindex %></div>

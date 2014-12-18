@@ -33,4 +33,18 @@ class Admin::DashboardController < AdminController
 			redirect_to admin_dashboard_index_path
 		end
 	end
+
+	def destroy
+		@visit = Visit.find params[:id]
+		@visit.destroy
+			respond_to do |format|
+				format.js
+			end	
+	end
+
+	protected
+
+	def visit_params 
+ 		params.require(:visit).permit(:title, :description, :date, :hours, :minutes, :turn, :members, :image)
+	end
 end

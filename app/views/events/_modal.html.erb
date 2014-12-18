@@ -5,11 +5,13 @@
       <h4 class="modal-title" id="myModalLabel"><%= event.title %></h4>
     </div>
     <div class="modal-body">
-      <% if event.image.present? %>
+      <div class="img-events-modal"><%= image_tag event.image.url(:thumb) %></div><br>
+      <div>
+    <!--   <% if event.image.present? %>
         <%= image_tag event.image.url(:thumb) %>
-      <% end %>
+      <% end %> -->
 
-      <%= event.description %>
+      <%= event.description %></div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -9,7 +9,7 @@
 <th>  </th>
 <th>  </th>
 <th>  </th>
-<% @reservation.last_created_reservation(20).each do |r| %>
+<% @reservation.last_created_reservation(5).each do |r| %>
 <tr id="reservation_<%= r.id %>" >
 	<% if r.state == "wait" %>
 	<td> <%= r.title %> </td>
@@ -37,7 +37,7 @@
 <th> State </th>
 <th>  </th>
 <th>  </th>
-<% @reservation.last_created_reservation(20).each do |r| %>
+<% @reservation.last_created_reservation(5).each do |r| %>
 <tr>
 	<% if r.state == "accept" %>
 	<td> <%= r.title %> </td>
@@ -47,9 +47,10 @@
 	<td> <%= r.date %> </td>
 	<td> <%= r.state %> </td>
 
-	<td><button class="btn btn-danger">Delete</button></td>
+	
 	<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_reservation_path(r.id)%></button></td>
 	<% end %>
 </tr>
 <% end %>
 </table>
+<div class="paginate apple_pagination "><%= will_paginate @reservation %></div>

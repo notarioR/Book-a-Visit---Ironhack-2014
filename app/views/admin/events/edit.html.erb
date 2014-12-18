@@ -1,11 +1,11 @@
-<div class="area">
+
 <h1>Edit Events</h1>
 <%= form_for [:admin, @event] do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
   <br>
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_area :description %>
   <br>
   <%= f.label :image %>
   <%= f.file_field :image %>
@@ -14,8 +14,11 @@
   <%= f.label :url %>
   <%= f.text_field :url %>
   <br>
+  <%= f.label :members %>
+  <%= f.text_field :members %>
+ <!--  <br>
   <%= f.label :turn %>
-  <%= f.select :turn, options_for_select([['Morning', false],['Afternoon', true]], @event.turn) %>
+  <%= f.select :turn, options_for_select([['Morning', false],['Afternoon', true]], @event.turn) %> -->
   <br>
   <%= f.label :date %>
   <%= f.date_field :date %>
@@ -24,4 +27,3 @@
   <%= f.submit 'Save' %>
 
   <% end %>
-</div>

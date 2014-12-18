@@ -31,7 +31,7 @@ class VisitsController < ApplicationController
 		@visit = Visit.find params[:id]
 		if @visit.update_attributes visit_params 
 			flash[:notice] = "Visit update successfully"
-			redirect_to Visits_path
+			redirect_to admin_dashboard_index_path
 		end
 	end
 
@@ -39,11 +39,11 @@ class VisitsController < ApplicationController
 		@visit = Visit.find params[:id]
 		if @visit.destroy
 			flash[:notice] = "Visit destroy successfully"
-			redirect_to visits_path
+			redirect_to admin_dashboard_index_path
 		end
 	end
 
 	def visit_params 
- 		params.require(:visit).permit(:title, :description, :date, :hours, :minutes, :turn)
+ 		params.require(:visit).permit(:title, :description, :date, :hours, :minutes, :turn, :members, :image)
 	end
 end

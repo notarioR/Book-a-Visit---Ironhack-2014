@@ -9,7 +9,7 @@ class Admin::ReservationsController < AdminController
 	end
 
 	def index
-		@reservation = Reservation.all
+		@reservation = Reservation.all.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def edit
@@ -34,6 +34,7 @@ class Admin::ReservationsController < AdminController
 		
 	end
 	
+	protected
 
 	def reservation_params 
  		params.require(:reservation).permit(:title, :phone, :email, :members, :date, )

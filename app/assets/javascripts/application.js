@@ -21,6 +21,7 @@
  $(document).ready(function() {
 
  		$('#user_password, #user_username').addClass('form-control');
+
  		$('.button-visit').click(function(){
 			$('.render-last-visit').toggle(1000);
 		});
@@ -32,6 +33,8 @@
 		$('.button-event').click(function(){
 			$('.render-last-events').toggle(1000);
 		});
+
+
  		
  		var url = 'events/';
 
@@ -54,9 +57,11 @@
 			},
 			
 	    	events: visits,
+	    	
 	    	eventClick: function(event) {
-	    		console.log(event.cl)
-	    		if (event.cl == 'Event'){
+
+	    		console.log(event.className)
+	    		if (event.className == 'Event'){
 	    			$.ajax({
 		    			url: url + event.id,
 		    			dataType: 'script' 
@@ -67,10 +72,7 @@
 		    			dataType: 'script' 
 	    			});
 	    		};
-	    		
-
-	    		$('.eventclick').text(event.title );   
-		    }
+		    },
 		});
 });
 

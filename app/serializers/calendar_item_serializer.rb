@@ -1,11 +1,11 @@
 class CalendarItemSerializer < ActiveModel::Serializer
-  attributes :id, :date, :title, :cl
+  attributes :id, :date, :title, :className
 
   def title
   	"#{object.title} - #{object.description}"
   end
 
-  def cl
+  def className
   	"#{object.class.name}"
   end
 

@@ -1,34 +1,39 @@
+<div class="tables-area">
+	<div class="tables-inline col-md-12">
+		<table class="table table-hover table-condensed">
+				<th> Image </th>
+				<th> Title </th>
+				<th> Description </th>
+				<th> Edit </th>
+			<% @visit.last_created_visits(5).each do |v| %>
+			<tr id="visit_<%= v.id %>" >
+				<td> <%= image_tag v.image.url(:thumb) %> </td>
+				<td><%= v.title %> </td>
+				<td><%= v.description.truncate(50) %></td>		
+				<td><%= link_to 'Edit', edit_admin_dashboard_path(v.id) %></td>
+				<td><%= link_to(admin_dashboard_path(v.id), method: :delete, remote: :true) do%>
+				Delete
+				<% end %>
+				</td>
+			<% end %>	
+		</table>
+	</div>
 
-<div class="visits-dash col-md-6">
-	<div class="lists">Last Visits</div>
-	<% @visit.last_created_visits(5).each do |v| %>
-		<li id="<%= v.id %>" class="lists">
-			<%= v.title %> -
-			<%= v.description %>
-			<%= link_to 'Edit', edit_admin_dashboard_path(v.id) %>
-		</li>
-	<% end %>	
+	<!-- <div class="tables-inline col-md-6">
+		<table class="table table-hover table-condensed">
+				<th> Title </th>
+				<th> Description </th>
+				<th> Edit </th>
+			<div class="lists">Last reservation</div>
+			<% @reservation.last_created_reservation(5).each do |r| %>
+			<tr id="reservation_<%= r.id %>" >
+				<td><%= r.title %> </td>
+				<td><%= r.phone %> </td>
+				<td><%= r.email %> </td>
+				<td><%= link_to 'Edit', edit_admin_reservation_path(r.id) %> </td>
+				</li>
+			<% end %>
+		</table>
+	</div> -->
 </div>
-
-<div class="reservation-dash col-md-6">
-	<div class="lists">Last reservation</div>
-	<% @reservation.last_created_reservation(5).each do |r| %>
-		<li id="<%= r.id %>" class="lists">
-			<%= r.title %> -
-			<%= r.email %>
-			<%= link_to 'Edit', edit_admin_reservation_path(r.id) %>
-		</li>
-	<% end %>
-</div>
-
 <div class="paginate apple_pagination col-md-12"><%= will_paginate @visit %></div>
-
-<div id="calendar" class="col-md-12">
-	<%= javascript_tag do -%>
-	var visits = <%= @calendar_items.html_safe %>;
-	<% end -%>
-</div>
-
-
-	
-</div>

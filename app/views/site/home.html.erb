@@ -38,11 +38,11 @@
 
 			<div class="render-last-events">
 				<%if @events.present? %>
-					<% @events.last_created_events(5).each do |e| %>
+					<% @events.last_created_events(3).each do |e| %>
 						<div class="list-title"><%= e.title %></div>
-						<div class="list-description"><%= e.description.truncate(10) %></div>
+						<div class="list-description"><%= e.description.truncate(40) %></div>
 						<div class="list-image"><%= image_tag e.image.url(:thumb) %></div>
-						<div class="list-url"> <a href="<%= e.url %>">Link Event</a></div>
+						<div class="list-url"> <a target="_blank" href="<%= e.url %>">Link Event</a></div>
 						<hr>
 					<% end %>
 					<% else %>
@@ -55,6 +55,7 @@
 			<div class="render-last-visit">
 					<% @visits.last_created_visits(5).each do |v| %>
 						<div class="list-title"><%= v.title %></div>
+						<div class="list-members">Members: <%= v.members %></div>
 						<div class="list-description"><%= v.date %></li></div><hr>
 					<% end %>
 			</div>

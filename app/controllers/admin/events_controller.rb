@@ -2,7 +2,7 @@ class Admin::EventsController < AdminController
 	before_action :set_event, only: %i(edit show update destroy)
 
 	def index
-		@eventsindex = Event.all
+		@eventsindex = Event.all.paginate(:page => params[:page], :per_page => 5)
 		@events = Event.all.to_json
 		render layout: "admin"
 	end
@@ -45,7 +45,7 @@ class Admin::EventsController < AdminController
   private
 
 	def events_params 
- 		params.require(:event).permit(:title, :description, :date, :image, :url)
+ 		params.require(:event).permit(:title, :description, :date, :image, :url, :members)
 	end
 
   def set_event

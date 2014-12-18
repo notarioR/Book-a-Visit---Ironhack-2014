@@ -1,5 +1,5 @@
 class Reservation < ActiveRecord::Base
-	validates_presence_of :email
+	validates :email, :date, presence: true 
 
 	enum state: {   wait:  0,
                 	accept:  1,
