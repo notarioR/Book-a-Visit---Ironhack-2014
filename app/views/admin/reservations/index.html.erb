@@ -1,5 +1,5 @@
 
-<table class="table table-striped wait">WAIT
+<table class="table table-hover table-condensed wait">WAIT
 <th> Title </th>
 <th> Email </th>
 <th> Phone </th>
@@ -28,7 +28,7 @@
 <% end %>
 </table>
 
-<table class="table table-striped accept"> ACCEPT
+<table class="table table-hover table-condensed accept"> ACCEPT
 <th> Title </th>
 <th> Email </th>
 <th> Phone </th>
@@ -46,8 +46,7 @@
 	<td> <%= r.members %> </td>
 	<td> <%= r.date %> </td>
 	<td> <%= r.state %> </td>
-	
-	<td><button class="btn btn-success">Acept</button></td>
+
 	<td><button class="btn btn-danger">Delete</button></td>
 	<td><button class="buttons_admin btn btn-warning"><%= link_to 'Edit', edit_admin_reservation_path(r.id)%></button></td>
 	<% end %>
