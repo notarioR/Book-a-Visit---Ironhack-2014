@@ -1,0 +1,24 @@
+ <h1>Event new</h1>
+
+<%= form_for [:admin, @event] do |f| %>
+
+  <%= f.text_field :title, placeholder: 'Title' %>
+  <br>
+
+  <%= f.text_area :description, placeholder: 'Description' %>
+  <br>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <br> 
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+  <br>
+  <%= f.label :members %>
+  <%= f.text_field :members %>
+  <br>
+  <%= f.label :date %>
+  <%= f.date_field :date, required: true %>
+  <br>
+  <%= f.submit 'Save' %>
+  <%= link_to 'Cancel', '/' %>
+ <% end %>

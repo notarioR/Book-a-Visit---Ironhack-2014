@@ -9,6 +9,9 @@ class Admin::EventsController < AdminController
 
 	def new
 		@event = Event.new
+		respond_to do |format|
+			format.js
+		end
 	end
 
 	def edit
