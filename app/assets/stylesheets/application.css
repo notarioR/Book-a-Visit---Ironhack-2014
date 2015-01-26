@@ -222,6 +222,11 @@ input#reservation_date{
 img{
 	max-width: 100%;
 }
+.form_devise input {
+background-color: transparent;
+border: none;
+}
+
 
 .footer{
 	border-top: 1px solid;
